@@ -40,7 +40,7 @@ async function updateAddon(id: string, zip: string, token: string) {
 }
 
 async function publishAddon(id: string, token: string, publishTarget: string) {
-  const endpoint = `https://www.googleapis.com/chromewebstore/v1.1/items/${id}/publish`;
+  const endpoint = `https://www.googleapis.com/chromewebstore/v1.1/items/${id}/publish?publishTarget=${publishTarget}`;
   const response = await axios.post(
     endpoint,
     { target: publishTarget },
@@ -62,6 +62,7 @@ async function run() {
     const zip = core.getInput('zip', { required: true });
     const extension = core.getInput('extension');
     const publishTarget = core.getInput('publish-target');
+    core.debug(`Publish Target: ${publishTarget}`);
 
     const token = await requestToken(clientId, clientSecret, refresh);
     core.debug(`Token: ${token}`);

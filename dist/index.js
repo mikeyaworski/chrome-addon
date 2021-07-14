@@ -71,7 +71,7 @@ function updateAddon(id, zip, token) {
 }
 function publishAddon(id, token, publishTarget) {
     return __awaiter(this, void 0, void 0, function* () {
-        const endpoint = `https://www.googleapis.com/chromewebstore/v1.1/items/${id}/publish`;
+        const endpoint = `https://www.googleapis.com/chromewebstore/v1.1/items/${id}/publish?publishTarget=${publishTarget}`;
         const response = yield axios_1.default.post(endpoint, { target: publishTarget }, {
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -90,6 +90,7 @@ function run() {
             const zip = core.getInput('zip', { required: true });
             const extension = core.getInput('extension');
             const publishTarget = core.getInput('publish-target');
+            core.debug(`Publish Target: ${publishTarget}`);
             const token = yield requestToken(clientId, clientSecret, refresh);
             core.debug(`Token: ${token}`);
             if (extension && extension.length > 0) {
