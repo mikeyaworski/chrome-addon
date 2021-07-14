@@ -1,19 +1,22 @@
 name: 'Chrome Extension Action'
-description: 'Upload your addon to the Chrome Web Store'
+description: 'Upload your extension to the Chrome Web Store'
 author: 'Thomas McNiven'
+branding:
+  icon: 'upload-cloud'
+  color: 'green'
 inputs:
   extension:
     description: 'ID of the extension that you are updating'
   zip:
     description: 'Path to a .zip of your addon'
   client-id:
-    description: 'Google OAuth2 client id'
+    description: 'Google OAuth2 client ID'
   client-secret:
     description: 'Google OAuth2 client secret'
   refresh-token:
     description: 'Google OAuth2 refresh token'
   publish-target:
-    description: 'Chrome Stroe publish target "default" | "trustedTesters"'
+    description: 'Chrome Store publish target "default" | "trustedTesters"'
     default: 'default'
 runs:
   using: 'node12'
