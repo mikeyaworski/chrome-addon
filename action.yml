@@ -1,4 +1,4 @@
-name: 'Chrome Addon Action'
+name: 'Chrome Extension Action'
 description: 'Upload your addon to the Chrome Web Store'
 author: 'Thomas McNiven'
 inputs:
