@@ -75,6 +75,7 @@ async function run() {
       await publishAddon(extension, token, publishTarget);
     }
   } catch (error) {
+    // @ts-expect-error
     core.setFailed(error.message);
   }
 }
